@@ -49,5 +49,7 @@ class DogWallet {
 const dogWallet = new DogWallet("Divine",account_1.address,10);
 const generateAddress = dogWallet.generateAddress("normal_account")
 const generateWallet = dogWallet.generateAddress("user_wallet")
+const hashPrivateKey_Account = dogWallet.hashWallet("normal_account","chimdindu",generateAddress.address);
 console.log(generateAddress)
 console.log(generateWallet)
+console.log(hashPrivateKey_Account)
