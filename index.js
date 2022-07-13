@@ -1,15 +1,15 @@
 const Web3 = require("web3")
 const web3 = new Web3();
 const account_1 = web3.eth.accounts.create();
-console.log(account_1)
+//console.log(account_1)
 const wallet_1 = web3.eth.accounts.wallet
-console.log(wallet_1)
+//console.log(wallet_1)
 const randon_accounts_10 = web3.eth.accounts.wallet.create(10,"sub");
-console.log(randon_accounts_10)
+//console.log(randon_accounts_10)
 const enc = web3.eth.accounts.encrypt(account_1.privateKey, "password");
-console.log(enc)
+//console.log(enc)
 const enc_single_wallet = web3.eth.accounts.wallet.encrypt(wallet_1);
-console.log(enc_single_wallet)
+//console.log(enc_single_wallet)
 class DogWallet {
     constructor(name,address,numberOfWallet){
         this.name == name;
@@ -21,7 +21,7 @@ class DogWallet {
             const acc = web3.eth.accounts.create();
             return acc;
         }else if(type  == "user_wallet"){
-            const acc = web3.eth.accounts.wallet.create(numberOfWallet,"@@@")
+            const acc = web3.eth.accounts.wallet.create(this.numberOfWallet,"@@@")
             return acc;
         }else{
             return "type can't be read :("
@@ -48,4 +48,6 @@ class DogWallet {
 }
 const dogWallet = new DogWallet("Divine",account_1.address,10);
 const generateAddress = dogWallet.generateAddress("normal_account")
+const generateWallet = dogWallet.generateAddress("user_wallet")
 console.log(generateAddress)
+console.log(generateWallet)
