@@ -32,7 +32,7 @@ class DogWallet {
             const hash = web3.eth.accounts.encrypt(privateKey,password)
             return hash
         }else{
-           const hash = web3.eth.accounts.wallet.encrypt(privateKey,password)
+           const hash = web3.eth.accounts.wallet.encrypt(password)
            return hash
         }
     }
@@ -50,6 +50,18 @@ const dogWallet = new DogWallet("Divine",account_1.address,10);
 const generateAddress = dogWallet.generateAddress("normal_account")
 const generateWallet = dogWallet.generateAddress("user_wallet")
 const hashPrivateKey_Account = dogWallet.hashWallet("normal_account","chimdindu",generateAddress.address);
+const hashPrivateKey_Walet = dogWallet.hashWallet("","chimdindu",generateWallet)
+const de_hashWallet_account = dogWallet.de_hashWallet("normal_wallet","chimdindu",hashPrivateKey_Account)
+const de_hashWallets = dogWallet.de_hashWallet("user_wallet","chimdindu",hashPrivateKey_Walet)
+console.log("generateAddress")
 console.log(generateAddress)
+console.log("generateWallet")
 console.log(generateWallet)
+console.log("hashPrivateKey_Account")
 console.log(hashPrivateKey_Account)
+console.log("hashPrivateKey_Walet");
+console.log(hashPrivateKey_Walet)
+console.log("de_hashWallet_account");
+console.log(de_hashWallet_account);
+console.log("de_hashWallets");
+console.log(de_hashWallets)
